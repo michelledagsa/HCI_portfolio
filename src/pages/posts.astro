@@ -10,17 +10,15 @@ const pageTitle = "Posts";
     <div class="gif">
         <img width="300" height="259" alt="RaccoonNotesGif" src="/blog.webp" />
     </div>
-    <h2>Blog</h2>
+    <h2>My Hobbies</h2>
     <ul role="list" class="link-card-grid">
-        {
-            allPosts.map((cardPost) => (
-                <Card
-                    url={`/posts/${cardPost.slug}/`}
-                    image={cardPost.data.image.url}
-                    title={cardPost.data.title}
-                    date={cardPost.data.date}
-                />
-            ))
-        }
+        {allPosts.map((cardPost) => (
+            <Card
+                url={`/posts/${cardPost.slug}/`}
+                title={cardPost.data.title}
+                image={cardPost.data.image?.url || "/blog-post.webp"}
+                date={cardPost.data.date}
+            />
+        ))}
     </ul>
 </Layout>
